@@ -56,6 +56,7 @@ endforeach(f)
 
 
 
+set_source_files_properties(${BulletSoftBodyDX11Solvers_HLSL} PROPERTIES HEADER_FILE_ONLY TRUE)
 ADD_LIBRARY(BulletSoftBodySolvers_DX11  ${BulletSoftBodyDX11Solvers_SRCS} ${BulletSoftBodyDX11Solvers_HDRS} ${BulletSoftBodyDX11Solvers_HLSL})
 SET_TARGET_PROPERTIES(BulletSoftBodySolvers_DX11 PROPERTIES VERSION ${BULLET_VERSION})
 SET_TARGET_PROPERTIES(BulletSoftBodySolvers_DX11 PROPERTIES SOVERSION ${BULLET_VERSION})

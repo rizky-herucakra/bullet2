@@ -48,12 +48,14 @@ IF (USE_GLUT)
 					TARGET AppBulletXmlImportDemo
 					POST_BUILD
 					COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${BULLET_PHYSICS_SOURCE_DIR}/glut64.dll ${CMAKE_CURRENT_BINARY_DIR}
+				COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${BULLET_PHYSICS_SOURCE_DIR}/glut64.dll $<TARGET_FILE_DIR:AppBulletXmlImportDemo>
 				)
 			ELSE(CMAKE_CL_64)
 				ADD_CUSTOM_COMMAND(
 					TARGET AppBulletXmlImportDemo
 					POST_BUILD
 					COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${BULLET_PHYSICS_SOURCE_DIR}/GLUT32.DLL ${CMAKE_CURRENT_BINARY_DIR}
+				COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${BULLET_PHYSICS_SOURCE_DIR}/GLUT32.DLL $<TARGET_FILE_DIR:AppBulletXmlImportDemo>
 				)
 			ENDIF(CMAKE_CL_64)
 		ENDIF(WIN32)
@@ -80,7 +82,8 @@ IF (NOT INTERNAL_CREATE_DISTRIBUTABLE_MSVC_PROJECTFILES AND NOT INTERNAL_UPDATE_
 		TARGET AppBulletXmlImportDemo 
 		POST_BUILD
 		COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${BULLET_PHYSICS_SOURCE_DIR}/Demos/BulletXmlImportDemo/bullet_basic.xml ${CMAKE_CURRENT_BINARY_DIR}/bullet_basic.xml
-		COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${BULLET_PHYSICS_SOURCE_DIR}/Demos/BulletXmlImportDemo/bullet_basic.xml ${CMAKE_CURRENT_BINARY_DIR}/Debug/bullet_basic.xml
+		COMMAND ${CMAKE_COMMAND} ARGS -E copy_if_different ${BULLET_PHYSICS_SOURCE_DIR}/Demos/BulletXmlImportDemo/bullet_basic.xml $<TARGET_FILE_DIR:AppBulletXmlImportDemo>
+
 	)
 ENDIF ()
 

@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.4)
+cmake_minimum_required(VERSION 3.16...4.4)
 
 
 #this line has to appear before 'PROJECT' in order to be able to disable incremental linking
@@ -143,6 +143,7 @@ TARGET_LINK_LIBRARIES(AppDX11ClothDemo
 	LinearMath
 	BulletSoftBody
 	BulletSoftBodySolvers_DX11
+	legacy_stdio_definitions
 )
 
 IF (INTERNAL_ADD_POSTFIX_EXECUTABLE_NAMES)
